@@ -1,16 +1,25 @@
-# React + Vite
+# User Stories:
+1. User should be able to log in or register.
+2. Create a new flashcard deck with a title. 
+3. Add, edit, and delete cards to the deck.
+4. Practice the terms in Study mode and mark each card as either known or unknown. 
+5. Practice only with the known cards or the unknown cards
+6. View other people’s public decks and practice with them, but cannot edit them.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+Set up backend:
+cd back-end
+npm install
+Create a .env file in backend folder and have:
+  DATABASE_URL:"postgresql://yourUsername:yourPassword@localhost:5432/studyWebsite"
+  JWT_SECRET: run the following command-> 
+  node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
+npx prisma migrate dev
+npx prisma generate
+npm run dev
+  
+Set up front-end:
+cd front-end
+npm install
+npm run dev
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
