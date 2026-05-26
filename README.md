@@ -8,18 +8,18 @@
 
 
 Set up backend:
-cd back-end
-npm install
-Create a .env file in backend folder and have:
+1) cd back-end
+2) npm install
+3) Create a .env file in backend folder and have:
   DATABASE_URL:"postgresql://yourUsername:yourPassword@localhost:5432/studyWebsite"
   JWT_SECRET: run the following command-> 
   node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
-npx prisma migrate dev
-npx prisma generate
-npm run dev
+4) npx prisma migrate dev
+5) npx prisma generate
+6) npm run dev
   
 Set up front-end:
-cd front-end
-npm install
-npm run dev
+1) cd front-end
+2) npm install
+3) npm run dev
 
