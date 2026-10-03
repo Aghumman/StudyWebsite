@@ -8,11 +8,11 @@ const DeckList = ({ decks = [] }) => {
 
   return (
     <Box w='full'>
-      {decks.map((deck, index) => (
-        <Deck key={deck.id} index={index} {...deck} />
+      {decks.map((deck) => (
+        <Deck key={deck.id} {...deck} />
       ))}
 
-      {decks.length > 0 && <p>There are {decks.length} decks.</p>}
+      <p>There are {decks.length} decks.</p>
     </Box>
   )
 }

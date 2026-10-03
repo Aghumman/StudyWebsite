@@ -4,13 +4,13 @@ import { useDecksContext } from "./context";
 import { useNavigate } from "react-router-dom";
 import { Button, ButtonGroup, Flex, Spacer, Text } from "@chakra-ui/react";
 
-const Deck = ({ title, id, index, isPublic }) => {
+const Deck = ({ title, id, isPublic }) => {
   const navigate = useNavigate();
   const [editing, setEditing] = useState(false);
   const { deleteDeck, updateTitle, togglePublic } = useDecksContext();
 
-  const onEdit = (index, title) => {
-    updateTitle(index, title);
+  const onEdit = (id, title) => {
+    updateTitle(id, title);
     setEditing(false);
   };
 
@@ -26,7 +26,7 @@ const Deck = ({ title, id, index, isPublic }) => {
     >
       {editing ? (
         <EditTitle
-          index={index}
+          id={id}
           title={title}
           onEdit={onEdit}
           onCancel={() => setEditing(false)}
@@ -46,7 +46,7 @@ const Deck = ({ title, id, index, isPublic }) => {
             <input
               type="checkbox"
               checked={isPublic}
-              onChange={() => togglePublic(index, !isPublic)}
+              onChange={() => togglePublic(id, !isPublic)}
             />
             Public
           </label>
@@ -61,7 +61,7 @@ const Deck = ({ title, id, index, isPublic }) => {
         onClick={(e) => e.stopPropagation()}
       >
         {!editing && <Button onClick={() => setEditing(true)}>Edit</Button>}
-        <Button onClick={() => deleteDeck(index)}>Delete</Button>
+        <Button onClick={() => deleteDeck(id)}>Delete</Button>
       </ButtonGroup>
     </Flex>
   );
